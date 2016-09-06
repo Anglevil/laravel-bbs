@@ -11,6 +11,9 @@
 |
 */
 
+
+Route::get('/demo','HomeController@demo');
+
 Route::get('/','HomeController@index');
 
 Route::get('/post/create','HomeController@create');
@@ -39,7 +42,18 @@ Route::post('/register', 'Auth\RegisterController@register');
 
 Route::post('/comment/store','CommentController@store');
 
-
+/*
+|--------------------------------------------------------------------------
+| common Routes
+|--------------------------------------------------------------------------
+|
+| common Route list
+|
+*/
+Route::group(['prefix' => 'common','namespace' => 'Common'],function (){
+    #上传
+    Route::post('/upload','PictureController@upload');
+});
 /*
 |--------------------------------------------------------------------------
 | admin Routes

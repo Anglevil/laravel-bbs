@@ -17,8 +17,14 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'post']]);
+        $this->middleware('auth', ['except' => ['index', 'post','demo']]);
     }
+
+
+    public function demo(){
+        return view('demo');
+    }
+
     public function index(){
         //获取所有帖子
         $post = Post::with('member','category','lastCommentMember')

@@ -17,6 +17,8 @@ class CreatePicturesTable extends Migration
             $table->increments('id');
             $table->integer('member_id')->default(0);
             $table->string('disk_name')->default('')->index();
+            $table->string('disk_path')->default('')->index();
+            $table->string('local_name')->default('');
             $table->integer('file_size')->default(0);
             $table->string('file_type')->default('');
             $table->string('title')->default('')->index();
