@@ -50,7 +50,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dLabel">
                         <li>
-                            <a href="#">
+                            <a href="{{ url('/member') }}">
                                 <i class="glyphicon glyphicon-user"></i> 个人中心
                             </a>
                         </li>

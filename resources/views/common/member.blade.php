@@ -16,14 +16,15 @@
     <div class="content">
         <div class="container">
 
+            <div class="col-md-3 side-bar" style="padding-left: 0 !important;padding-right: 10px;">
+                @yield('side')
+            </div>
             <div class="col-md-9 content-page">
 
                 @yield('content')
 
             </div>
-            <div class="col-md-3 side-bar">
-                @yield('side')
-            </div>
+
 
 
 
