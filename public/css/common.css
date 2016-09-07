@@ -11,6 +11,16 @@ html,body{
 	min-height: 100%;
     position: relative;
 }
+.btn-primary {
+    color: #fff;
+    background-color: #00b5ad;
+    border-color: #00b5ad;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #00c4bc;
+    border-color: #00c4bc;
+}
 header{
 	height: 45px !important;
     background-color: #3c3e42 !important;
@@ -348,4 +358,94 @@ footer{
 }
 .comment-info-body{
     margin: 10px 0;
+}
+
+
+.member-avatar{
+    width: 150px;
+    height:150px;
+    border-radius: 100%;
+    overflow: hidden;
+    border: solid 1px #CCCCCC;
+    margin: 0 auto;
+}
+.member-avatar img{
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    margin: 4px;
+}
+.member-name{
+    text-align: center;
+    font-size: 18px;
+}
+.follow-info a{
+    display: block;
+    text-align: center;
+}
+.follow-info a.counter{
+    font-size: 25px;
+    color: #00b5ad;
+}
+.follow-info a.text{
+    color: #999;
+}
+.member-edit a{
+    background: #12c4c5;
+    border-color: #12c4c5;
+}
+.member-edit a:hover,.member-edit a:focus,.member-edit a:active{
+    background: #00b5ad;
+    border-color: #00b5ad;
+}
+
+.member-post-list>li{
+    border-top: none !important;
+}
+.member-post-list>li>a{
+    color: #12c4c5;
+    margin-right: 10px;
+}
+.member-post-list>li>span{
+    color: #d0d0d0;
+    font-size: 12px;
+}
+.member-post-list>li>span a{
+    color: #aaa;
+}
+
+.form-box .control-label{
+    text-align: right;
+    line-height: 35px;
+}
+
+.member-edit-list li{
+    border-top: none !important;
+    padding: 0;
+}
+.member-edit-list li a{
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: center;
+    color: #555;
+}
+.member-edit-list li a:hover{
+    text-decoration: none;
+}
+.member-edit-list li.active{
+    background: #00b5ad;
+    border: none;
+    border-radius: 0;
+}
+.member-edit-list li.active>a{
+    color: #fff;
+}
+.member-edit-list li:hover{
+    background: #eee;
+}
+.member-edit-list li.active:hover{
+    background: #12c4c5;
 }

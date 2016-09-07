@@ -11,7 +11,7 @@
             <div class="detail-title clearfix">
                 <div class="head pull-left">
                     <a href="#">
-                        <img class="img-circle" width="100" height="100" src="https://dn-phphub.qbox.me/uploads/avatars/5281_1470624645.jpeg?imageView2/1/w/100/h/100" />
+                        <img class="img-circle" width="100" height="100" src="{{ getPicture($post->member->avatar) }}" />
                     </a>
                 </div>
                 <div class="title pull-left">
@@ -53,7 +53,7 @@
                 <li class="clearfix comment-item">
                     <div class="pull-left comment-img">
                         <a href="#">
-                            <img width="50" height="50" class="img-circle" src="https://dn-phphub.qbox.me/uploads/avatars/34_1427637647.jpeg?imageView2/1/w/100/h/100"></a>
+                            <img width="50" height="50" class="img-circle" src="{{ getPicture($item->member->avatar) }}"></a>
                         </a>
                     </div>
                     <div class="comment-infos" style="margin-left: 70px;">

@@ -21,7 +21,7 @@
                         <div class="pull-left clearfix">
                             <div class="pull-left">
                                 <a href="#">
-                                    <img class="img-circle" src="https://dn-phphub.qbox.me/uploads/avatars/4430_1470104433.png?imageView2/1/w/100/h/100" width="45">
+                                    <img class="img-circle" src="{{ getPicture($v->member->avatar) }}" width="45" height="45">
                                 </a>
                             </div>
                             <div class="pull-left">
@@ -50,7 +50,7 @@
                         <div class="pull-right">
                             <div class="last-comment">
                                 <a href="#">
-                                    <img class="img-circle" src="https://dn-phphub.qbox.me/uploads/avatars/5189_1470142961.png?imageView2/1/w/100/h/100" width="20"
+                                    <img class="img-circle" src="{{ getPicture($v->lastCommentMember->avatar) }}" width="20" height="20"
                                          title="{{ $v->lastCommentMember->name }}">
                                 </a>
                                 <span class="timeago">{{ \Carbon\Carbon::createFromTimestamp(strtotime($v->last_comment_at))->diffForHumans() }}</span>

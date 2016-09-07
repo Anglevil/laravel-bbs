@@ -55,7 +55,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('/member/edit') }}">
                                 <i class="glyphicon glyphicon-pencil"></i> 编辑资料
                             </a>
                         </li>

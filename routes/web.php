@@ -51,8 +51,17 @@ Route::post('/comment/store','CommentController@store');
 |
 */
 Route::group(['prefix' => 'member','middleware' => 'auth','namespace' => 'Member'],function (){
-    #上传
+
     Route::get('/','HomeController@index');
+
+    Route::get('/edit',['uses'=>'HomeController@edit','as'=>'member.edit.edit']);
+
+    Route::get('/edit_avatar',['uses'=>'HomeController@edit_avatar','as'=>'member.edit.avatar']);
+
+    Route::get('/edit_password',['uses'=>'HomeController@edit_password','as'=>'member.edit.password']);
+
+    Route::get('/edit_binding',['uses'=>'HomeController@edit_binding','as'=>'member.edit.binding']);
+
 });
 
 /*
