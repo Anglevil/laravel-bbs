@@ -10,6 +10,6 @@ function getPicture($icon){
     if($picture){
         return '/'.$picture->disk_path.'/'.$picture->disk_name;
     }else{
-        return '/';
+        return 'https://dn-phphub.qbox.me/uploads/avatars/5741_1473307257.png?imageView2/1/w/100/h/100';
     }
 }

@@ -449,3 +449,20 @@ footer{
 .member-edit-list li.active:hover{
     background: #12c4c5;
 }
+
+
+.member-nav a{
+    display: block;
+    height: 80px;
+    line-height: 80px;
+    color: #CCCCCC;
+    font-size: 16px;
+}
+.member-nav a:hover{
+    text-decoration: none;
+    color: #555;
+}
+.member-nav a.active{
+    color: #555;
+    background: #ccc;
+}

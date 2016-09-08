@@ -46,6 +46,9 @@
 <script type="text/javascript" src="/js/jquery.min.js" ></script>
 <script type="text/javascript" src="/js/bootstrap.min.js" ></script>
 <script type="text/javascript" src="/package/moment/moment.js"></script>
+<script type="text/javascript">
+    $("[data-toggle='tooltip']").tooltip();
+</script>
 @yield('js')
 </body>
 </html>

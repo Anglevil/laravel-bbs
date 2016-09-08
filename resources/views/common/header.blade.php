@@ -44,7 +44,7 @@
                 @else
                 <li>
                     <a href="#" aria-haspopup="true" data-toggle="dropdown" id="Dlable">
-                        <img class="avatar-topnav" src="/img/3189_1450272271.jpeg">
+                        <img class="avatar-topnav" src="{{ getPicture(Auth::user()->avatar) }}">
                         {{ Auth::user()->name }}
                         <i class="glyphicon glyphicon-chevron-down"></i>
                     </a>

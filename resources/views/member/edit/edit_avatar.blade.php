@@ -11,13 +11,14 @@
             <div class="side-item-content">
                 <h2><i class="glyphicon glyphicon-picture"></i> 编辑个人头像</h2>
                 <hr>
+                @include('common.errsuc')
                 <div class="form-box">
-                    <form action="" method="post" enctype="multipart/form-data">
-
+                    <form action="{{ url('/member/edit_avatar') }}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">当前头像</label>
                             <div class="col-sm-6">
-                                <img src="https://dn-phphub.qbox.me/uploads/avatars/3189_1450272271.jpeg?imageView2/1/w/380/h/380">
+                                <img src="{{ getPicture(Auth::user()->avatar) }}">
                             </div>
                             <div class="col-sm-4 help-block"></div>
                         </div>
@@ -25,7 +26,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">上传头像</label>
                             <div class="col-sm-6">
-                                <input name="name"  type="file">
+                                <input name="avatar" type="file">
                             </div>
                             <div class="col-sm-4 help-block"></div>
                         </div>

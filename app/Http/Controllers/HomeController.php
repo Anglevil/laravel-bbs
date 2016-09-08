@@ -70,7 +70,7 @@ class HomeController extends Controller
         if($res){
             return redirect('/');
         }else{
-            return redirect(route('/post/create'));
+            return redirect('/post/create');
         }
 
     }

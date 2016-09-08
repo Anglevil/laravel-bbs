@@ -61,7 +61,8 @@
                             <a href="#">{{ $item->member->name }}</a>
                             <span>{{ $item->member->introduction }}</span>
                             <span class="pull-right">
-                                <a href="#">分享</a> ⋅ <a href="#">回复</a>
+                                <a href="#" data-toggle="tooltip" title="赞"><i class="glyphicon glyphicon-thumbs-up"></i></a> ⋅
+                                <a href="#" data-toggle="tooltip" title="回复({{ $item->member->name }})"><i class="glyphicon glyphicon-envelope"></i></a>
                             </span>
                             <div class="meta">
                                 #{{ $index+1 }} ⋅ {{ $item->created_at->diffForHumans() }}

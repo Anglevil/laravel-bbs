@@ -11,13 +11,14 @@
             <div class="side-item-content">
                 <h2><i class="glyphicon glyphicon-cog"></i> 编辑个人资料</h2>
                 <hr>
+                @include('common.errsuc')
                 <div class="form-box">
-                    <form action="" method="post">
-
+                    <form action="{{ url('/member/edit') }}" method="post">
+                        {{ csrf_field() }}
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">邮箱</label>
                             <div class="col-sm-6">
-                                <input name="email" class="form-control" disabled type="email" value="814876569@qq.com">
+                                <input class="form-control" disabled type="email" value="{{ Auth::user()->email }}">
                             </div>
                             <div class="col-sm-4 help-block">您的登录邮箱</div>
                         </div>
@@ -25,7 +26,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-6">
-                                <input name="name" class="form-control" type="text">
+                                <input name="name" class="form-control" type="text" value="{{ Auth::user()->name }}">
                             </div>
                             <div class="col-sm-4 help-block">您的昵称</div>
                         </div>
@@ -33,7 +34,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">个人简介</label>
                             <div class="col-sm-6">
-                                <textarea name="introduction" class="form-control"></textarea>
+                                <textarea name="introduction" class="form-control">{{ Auth::user()->introduction }}</textarea>
                             </div>
                             <div class="col-sm-4 help-block">您的个人简介</div>
                         </div>

@@ -11,6 +11,7 @@
             <div class="side-item-content">
                 <h2><i class="glyphicon glyphicon-lock"></i> 修改登陆密码</h2>
                 <hr>
+                @include('common.errsuc')
                 <div class="form-box">
                     <form action="" method="post">
 

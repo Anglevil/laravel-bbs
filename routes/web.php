@@ -52,15 +52,21 @@ Route::post('/comment/store','CommentController@store');
 */
 Route::group(['prefix' => 'member','middleware' => 'auth','namespace' => 'Member'],function (){
 
-    Route::get('/','HomeController@index');
+    Route::get('/',['uses'=>'HomeController@index','as'=>'member.index']);
 
-    Route::get('/edit',['uses'=>'HomeController@edit','as'=>'member.edit.edit']);
+    Route::get('/comment',['uses'=>'HomeController@comment','as'=>'member.comment']);
 
-    Route::get('/edit_avatar',['uses'=>'HomeController@edit_avatar','as'=>'member.edit.avatar']);
+    Route::get('/edit',['uses'=>'EditController@edit','as'=>'member.edit.edit']);
 
-    Route::get('/edit_password',['uses'=>'HomeController@edit_password','as'=>'member.edit.password']);
+    Route::post('/edit','EditController@edit_store');
 
-    Route::get('/edit_binding',['uses'=>'HomeController@edit_binding','as'=>'member.edit.binding']);
+    Route::get('/edit_avatar',['uses'=>'EditController@edit_avatar','as'=>'member.edit.avatar']);
+
+    Route::post('/edit_avatar','EditController@edit_avatar_store');
+
+    Route::get('/edit_password',['uses'=>'EditController@edit_password','as'=>'member.edit.password']);
+
+    Route::get('/edit_binding',['uses'=>'EditController@edit_binding','as'=>'member.edit.binding']);
 
 });
 
