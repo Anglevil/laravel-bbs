@@ -5,6 +5,9 @@
 @section('content')
     <div class="content-box">
         <div class="create-form" style="padding: 10px;">
+            <div class="alert alert-warning">
+                我们希望 论坛 能够成为氛围最好的社区，而实现这个目标，需要我们所有人的共同努力：友善，公平，尊重知识和事实。
+            </div>
             @if (count($errors) > 0)
             <!-- Form Error List -->
                 <div class="alert alert-danger">
@@ -22,20 +25,30 @@
             <form action="{{ url('/post/store') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    标题
-                    <input class="form-control" name="title" type="text">
-                </div>
-                <div class="form-group">
-                    分类
+                    板块
                     <select class="form-control" name="category_id">
-                        <option value="0">请选择栏目</option>
+                        <option value disabled selected>请选择板块</option>
                         @foreach($category as $v)
                             <option value="{{ $v->id }}">{{ $v->name }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="content"></textarea>
+                    标题
+                    <input class="form-control" name="title" type="text" placeholder="请输入帖子标题">
+                </div>
+                <div class="comment-notice">
+                    <ul class="helpblock list">
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                        <li>请注意单词拼写，以及中英文排版，</li>
+                    </ul>
+                </div>
+                <div class="form-group">
+                    <textarea class="form-control" name="content" style="min-height: 500px;" placeholder="请输入Markdown格式内容"></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn  btn-success">发帖</button>

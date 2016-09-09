@@ -466,3 +466,22 @@ footer{
     color: #555;
     background: #ccc;
 }
+
+
+
+
+.comment-notice{
+    border: dashed 1px;
+    color: gray;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9fff3;
+}
+.comment-notice .helpblock {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+}
+.comment-notice .helpblock  li{
+    line-height: 30px;
+}
