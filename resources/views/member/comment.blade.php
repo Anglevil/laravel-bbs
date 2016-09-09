@@ -15,7 +15,7 @@
                     <li class="list-group-item">
                         <a href="{{ url('/post/'.$v->post->id) }}">{{ $v->post->title }}</a>
                         <span>at <a href="javascript:;">{{ $v->created_at->diffForHumans() }}</a></span>
-                        <p>{{ $v->content }}</p>
+                        <p>{!! $v->content !!}</p>
                     </li>
                     @endforeach
                 </ul>

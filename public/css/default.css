@@ -1,0 +1,16 @@
+pre{
+  background: #4e4e4e;
+  border: none;
+
+
+}
+code{
+  color: white !important;
+  text-shadow: none;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+}

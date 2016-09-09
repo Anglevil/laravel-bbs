@@ -26,7 +26,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-6">
-                                <input name="name" class="form-control" type="text" value="{{ Auth::user()->name }}">
+                                <input class="form-control" disabled type="text" value="{{ Auth::user()->name }}">
                             </div>
                             <div class="col-sm-4 help-block">您的昵称</div>
                         </div>

@@ -61,15 +61,19 @@
                             <a href="#">{{ $item->member->name }}</a>
                             <span>{{ $item->member->introduction }}</span>
                             <span class="pull-right">
-                                <a href="#" data-toggle="tooltip" title="赞"><i class="glyphicon glyphicon-thumbs-up"></i></a> ⋅
-                                <a href="#" data-toggle="tooltip" title="回复({{ $item->member->name }})"><i class="glyphicon glyphicon-envelope"></i></a>
+                                <a href="javascript:;" data-toggle="tooltip" title="赞">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                </a> ⋅
+                                <a href="javascript:;" data-toggle="tooltip" title="回复({{ $item->member->name }})"  onclick="comment('{{ $item->member->name }}');">
+                                    <i class="glyphicon glyphicon-envelope"></i>
+                                </a>
                             </span>
                             <div class="meta">
                                 #{{ $index+1 }} ⋅ {{ $item->created_at->diffForHumans() }}
                             </div>
                         </div>
                         <div class="comment-info-body">
-                            {{ $item->content }}
+                            {!! $item->content !!}
                         </div>
 
                     </div>
@@ -81,22 +85,28 @@
             @endif
         </div>
     </div>
-    <div class="article-item">
+    <div class="article-item" id="comment">
         <div class="item-title">
             回复
         </div>
+
         <div class="item-content">
+            @include('common.errsuc')
             <form action="{{ url('/comment/store') }}" method="post">
                 {{ csrf_field() }}
                 <input name="post_id" value="{{ $post->id }}" type="hidden">
+                <input id="comment_input" type="hidden">
                 <div class="form-group">
-                    <textarea class="form-control" name="content" style="height: 100px;"></textarea>
+                    <textarea name="content" class="form-control" style="height: 200px;" id="comment_textarea" {{$post->is_block?'disabled':''}}></textarea>
                 </div>
                 <div class="form-group clearfix">
-                    <button class="btn btn-sm btn-success pull-right">回复</button>
+                    <button class="btn btn-sm btn-success pull-right" {{$post->is_block?'disabled':''}}>回复</button>
                 </div>
 
             </form>
+            <div class="markdown-body" id="markdown-box" style="border: dashed 1px gray;padding: 10px;background: #faf5eb;">
+
+            </div>
         </div>
     </div>
 
@@ -136,4 +146,48 @@
             </ul>
         </div>
     </div>
+@endsection
+@section('css')
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
+@endsection
+@section('js')
+    <script src="/js/marked.js"></script>
+    <script src="/js/highlight.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+        $(document).ready(function(){
+
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                gfm: true,
+                tables: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: false,
+                smartLists: true,
+                smartypants: false
+            });
+            marked.setOptions({
+                highlight: function (code) {
+                    console.log('code:'+code);
+                    console.log('light:'+hljs.highlightAuto(code).value);
+                    return hljs.highlightAuto(code).value;
+                }
+            });
+
+        });
+
+        $('#comment_textarea').keyup(function () {
+            var marktext = marked($('#comment_textarea').val());
+            $('#markdown-box').html(marktext);
+            $('#comment_input').val(marktext);
+        });
+
+
+        function comment(name){
+            $('#comment_textarea').text('@'+name+' ');
+            $('#comment_textarea').focus();
+            window.location.href = '#comment';
+        }
+    </script>
 @endsection
