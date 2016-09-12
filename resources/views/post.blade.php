@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="detail-article">
-                {{ $post->content }}
+                {!! $post->content !!}
             </div>
         </div>
 
@@ -185,7 +185,7 @@
 
 
         function comment(name){
-            $('#comment_textarea').text('@'+name+' ');
+            $('#comment_textarea').val('@'+name+' ');
             $('#comment_textarea').focus();
             window.location.href = '#comment';
         }

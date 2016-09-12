@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\Auth;
+use Lib\Markdown\Markdown;
 
 class HomeController extends Controller
 {
@@ -58,6 +59,8 @@ class HomeController extends Controller
      */
     public function store(StorePostRequest $request){
         $data = $request->input();
+        $markdown = new Markdown;
+        $data['content'] = $markdown->convertMarkdownToHtml($data['content']);
         $data['member_id'] = Auth::id();
         $data['last_comment_member_id'] = Auth::id();
         $data['last_comment_at'] = Carbon::now()->toDateTimeString();

@@ -46,12 +46,15 @@
                     </ul>
                 </div>
                 <div class="form-group">
-                    <textarea class="form-control" name="content" style="min-height: 500px;" placeholder="请输入Markdown格式内容"></textarea>
+                    <textarea class="form-control" id="comment_textarea" name="content" style="min-height: 500px;" placeholder="请输入Markdown格式内容"></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn  btn-success">发帖</button>
                 </div>
             </form>
+            <div class="markdown-body" id="markdown-box" style="border: dashed 1px gray;padding: 10px;background: #faf5eb;">
+
+            </div>
         </div>
     </div>
 @endsection
@@ -74,4 +77,41 @@
             分享生活见闻, 分享知识 接触新技术, 讨论技术解决方案 为自己的创业项目找合伙人, 遇见志同道合的人 自发线下聚会, 加强社交 发现更好工作机会 甚至是开始另一个神奇的开源项目
         </div>
     </div>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css">
+@endsection
+@section('js')
+    <script src="/js/marked.js"></script>
+    <script src="/js/highlight.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+        $(document).ready(function(){
+
+            marked.setOptions({
+                renderer: new marked.Renderer(),
+                gfm: true,
+                tables: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: false,
+                smartLists: true,
+                smartypants: false
+            });
+            marked.setOptions({
+                highlight: function (code) {
+                    console.log('code:'+code);
+                    console.log('light:'+hljs.highlightAuto(code).value);
+                    return hljs.highlightAuto(code).value;
+                }
+            });
+
+        });
+
+        $('#comment_textarea').keyup(function () {
+            var marktext = marked($('#comment_textarea').val());
+            $('#markdown-box').html(marktext);
+        });
+    </script>
 @endsection
