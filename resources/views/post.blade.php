@@ -8,7 +8,7 @@
 @section('content')
     <div class="content-box">
         <div class="content-detail">
-            <div class="detail-title clearfix">
+            <div class="detail-title clearfix" style="position: relative;">
                 <div class="head pull-left">
                     <a href="#">
                         <img class="img-circle" width="100" height="100" src="{{ getPicture($post->member->avatar) }}" />
@@ -27,6 +27,20 @@
                         @endif
                             ⋅ {{ $post->view_count }} 阅读
                     </div>
+                </div>
+                <div class="post-status-box">
+                    @if($post->is_top)
+                        <div class="post-status" data-toggle="tooltip" title="帖子被置顶,排序靠前" style="background: #f0ad4e;"><i class="glyphicon glyphicon-arrow-up"></i> 置顶</div>
+                    @endif
+
+                    @if($post->is_good)
+                        <div class="post-status" data-toggle="tooltip" title="帖子被加精,实力好帖" style="background: #d9534f;"><i class="glyphicon glyphicon-thumbs-up"></i> 精华</div>
+
+                    @endif
+                    @if($post->is_block)
+                        <div class="post-status" data-toggle="tooltip" title="帖子被锁定,沉底关闭" style="background: #777;"><i class="glyphicon glyphicon-lock"></i> 锁定</div>
+                    @endif
+
                 </div>
             </div>
             <div class="detail-article">
@@ -154,23 +168,14 @@
     <script src="/js/marked.js"></script>
     <script src="/js/highlight.js"></script>
     <script>
-        hljs.initHighlightingOnLoad();
+        //hljs.initHighlightingOnLoad();
         $(document).ready(function(){
 
             marked.setOptions({
-                renderer: new marked.Renderer(),
-                gfm: true,
-                tables: true,
-                breaks: false,
-                pedantic: false,
-                sanitize: false,
-                smartLists: true,
-                smartypants: false
+                renderer: new marked.Renderer()
             });
             marked.setOptions({
                 highlight: function (code) {
-                    console.log('code:'+code);
-                    console.log('light:'+hljs.highlightAuto(code).value);
                     return hljs.highlightAuto(code).value;
                 }
             });

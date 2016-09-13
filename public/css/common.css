@@ -485,3 +485,32 @@ footer{
 .comment-notice .helpblock  li{
     line-height: 30px;
 }
+
+
+
+.post-status-box{
+    position: absolute;
+    left: -90px;
+    top: 0;
+    width: 70px;
+    color: #fff;
+    text-align: center;
+}
+.post-status{
+    margin-bottom: 5px;
+    height: 40px;
+    line-height: 40px;
+    cursor: pointer;
+    position: relative;
+}
+.post-status:after {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    border-top: 20px solid transparent;
+    border-left: 20px solid #ba8f6c;
+    border-bottom: 20px solid transparent;
+}
