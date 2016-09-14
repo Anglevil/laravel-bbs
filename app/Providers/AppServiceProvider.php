@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         \Carbon\Carbon::setLocale('zh');
+        view()->share('commonsite','问答社区吗？');
     }
 
     /**

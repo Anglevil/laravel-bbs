@@ -7,10 +7,17 @@ use App\Models\Post;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repository\MemberRepository;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    protected $memberRepository;
+    public function __construct(MemberRepository $memberRepository)
+    {
+        $this->memberRepository = $memberRepository;
+    }
+
     public function index(){
         //我的帖子
         $post = Post::where('member_id',Auth::id())

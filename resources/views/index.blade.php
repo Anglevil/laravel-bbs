@@ -15,7 +15,6 @@
         </div>
         <div class="content-list">
             <ul class="list-group row">
-
                 @foreach ($post as $v)
                     <li class="list-group-item clearfix">
                         <div class="pull-left clearfix">
@@ -74,7 +73,7 @@
 @section('side')
     <div class="side-item">
         <div class="side-item-content">
-            <a href="#" class="bottom">
+            <a href="{{ url('/post/create') }}" class="bottom">
                 <i class="glyphicon glyphicon-pencil"></i> 发布帖子
             </a>
         </div>

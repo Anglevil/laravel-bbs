@@ -30,15 +30,21 @@
                 </div>
                 <div class="post-status-box">
                     @if($post->is_top)
-                        <div class="post-status" data-toggle="tooltip" title="帖子被置顶,排序靠前" style="background: #f0ad4e;"><i class="glyphicon glyphicon-arrow-up"></i> 置顶</div>
+                        <div class="post-status-top post-status" data-toggle="tooltip" title="帖子被置顶,排序靠前" style="background: #f0ad4e;">
+                            <i class="glyphicon glyphicon-arrow-up"></i> 置顶
+                        </div>
                     @endif
 
                     @if($post->is_good)
-                        <div class="post-status" data-toggle="tooltip" title="帖子被加精,实力好帖" style="background: #d9534f;"><i class="glyphicon glyphicon-thumbs-up"></i> 精华</div>
+                        <div class="post-status-good post-status" data-toggle="tooltip" title="帖子被加精,实力好帖" style="background: #d9534f;">
+                            <i class="glyphicon glyphicon-thumbs-up"></i> 精华
+                        </div>
 
                     @endif
                     @if($post->is_block)
-                        <div class="post-status" data-toggle="tooltip" title="帖子被锁定,沉底关闭" style="background: #777;"><i class="glyphicon glyphicon-lock"></i> 锁定</div>
+                        <div class="post-status-block post-status" data-toggle="tooltip" title="帖子被锁定,沉底关闭" style="background: #777;">
+                            <i class="glyphicon glyphicon-lock"></i> 锁定
+                        </div>
                     @endif
 
                 </div>

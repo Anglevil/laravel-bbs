@@ -34,7 +34,6 @@ class CommentController extends Controller
         //查看是否重复评论
         $markdown = new Markdown;
         $data['content'] = $markdown->convertMarkdownToHtml($data['content']);
-        dd($data['content']);
         $last_comment = Comment::where('member_id', Auth::id())
             ->where('post_id', $data['post_id'])
             ->orderBy('id', 'desc')
