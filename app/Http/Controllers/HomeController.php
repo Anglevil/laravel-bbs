@@ -54,9 +54,6 @@ class HomeController extends Controller
         return view('create',['category'=>$category]);
     }
 
-    /**
-     * @param Request $request
-     */
     public function store(StorePostRequest $request){
         $data = $request->input();
         $markdown = new Markdown;
@@ -76,5 +73,16 @@ class HomeController extends Controller
             return redirect('/post/create');
         }
 
+    }
+    public function member($id){
+
+        if($id>0 && $id == Auth::id()){
+            return redirect('/member');
+        }
+        $member = Member::where('id',$id)->firstOrFail();
+        if(!$member){
+            return redirect('/member');
+        }
+        dd($member);
     }
 }

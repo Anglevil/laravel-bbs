@@ -19,7 +19,7 @@
                     <li class="list-group-item clearfix">
                         <div class="pull-left clearfix">
                             <div class="pull-left">
-                                <a href="#">
+                                <a href="{{ url('/post/'.$v->id) }}">
                                     <img class="img-circle" src="{{ getPicture($v->member->avatar) }}" width="45" height="45">
                                 </a>
                             </div>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="pull-right">
                             <div class="last-comment">
-                                <a href="#">
+                                <a href="{{ url('/post/'.$v->id) }}">
                                     <img class="img-circle" src="{{ getPicture($v->lastCommentMember->avatar) }}" width="20" height="20"
                                          title="{{ $v->lastCommentMember->name }}">
                                 </a>

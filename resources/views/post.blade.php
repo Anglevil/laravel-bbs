@@ -20,10 +20,11 @@
                         <a href="#">
                             <i class="glyphicon glyphicon-folder-open"></i>  {{ $post->category->name }}
                         </a> ⋅
-                        <a href="#">{{ $post->member->name }}</a> ⋅
+                        <a href="{{ url('/user/'.$post->member->id) }}">{{ $post->member->name }}</a> ⋅
                         于 {{ $post->created_at->diffForHumans() }}
                         @if(count($comment))
-                            ⋅ 最后回复由 <a href="#">{{ $post->lastCommentMember->name }}</a> 于 {{ \Carbon\Carbon::createFromTimestamp(strtotime($post->last_comment_at))->diffForHumans() }}
+                            ⋅ 最后回复由 <a href="{{ url('/user/'.$post->lastCommentMember->id) }}">{{ $post->lastCommentMember->name }}</a> 于
+                            {{ \Carbon\Carbon::createFromTimestamp(strtotime($post->last_comment_at))->diffForHumans() }}
                         @endif
                             ⋅ {{ $post->view_count }} 阅读
                     </div>
@@ -72,13 +73,13 @@
                 @foreach($comment as $index => $item)
                 <li class="clearfix comment-item">
                     <div class="pull-left comment-img">
-                        <a href="#">
+                        <a href="{{ url('/user/'.$item->member->id) }}">
                             <img width="50" height="50" class="img-circle" src="{{ getPicture($item->member->avatar) }}"></a>
                         </a>
                     </div>
                     <div class="comment-infos" style="margin-left: 70px;">
                         <div class="comment-info-head">
-                            <a href="#">{{ $item->member->name }}</a>
+                            <a href="{{ url('/user/'.$item->member->id) }}">{{ $item->member->name }}</a>
                             <span>{{ $item->member->introduction }}</span>
                             <span class="pull-right">
                                 <a href="javascript:;" data-toggle="tooltip" title="赞">

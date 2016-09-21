@@ -29,7 +29,7 @@ class Mention
 
         foreach ($this->members as $member) {
             $search = '@' . $member->name;
-            $place = '<a href="'.route('member.index', $member->id).'">'.$search.'</a>';
+            $place = '<a href="'.url('/user/'.$member->id).'">'.$search.'</a>';
             //$place = '['.$search.']('.route('member.index', $member->id).')';
             $this->body_parsed = str_replace($search, $place, $this->body_parsed);
         }

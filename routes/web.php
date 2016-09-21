@@ -22,7 +22,7 @@ Route::post('/post/store','HomeController@store');
 
 Route::get('/post/{id}','HomeController@post');
 
-
+Route::get('/user/{id}','HomeController@member');
 
 // Authentication Routes...
 
