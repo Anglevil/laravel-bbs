@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth.admin:admin');
+    }
+
     //
     public function index(){
         return view('admin.index');
-    }
-    public function login(){
-        return view('admin.common.login');
     }
 }

@@ -90,9 +90,14 @@ Route::group(['prefix' => 'common','namespace' => 'Common'],function (){
 | admin Route list
 |
 */
-Route::group(['prefix' => 'admin','middleware' => 'web','namespace'=>'Admin'],function(){
-    #登录
-    Route::get('/login','HomeController@login');
+#登录
+Route::get('/admin/login','Admin\Auth\LoginController@showLoginForm');
+
+Route::post('/admin/login', 'Admin\Auth\LoginController@login');
+
+Route::get('/admin/logout', 'Admin\Auth\LoginController@logout');
+
+Route::group(['prefix' => 'admin','middleware' => 'auth.admin:admin','namespace'=>'Admin'],function(){
     #主页
     Route::get('/','HomeController@index');
 });

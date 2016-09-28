@@ -51,20 +51,35 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
                 <div class="account-box">
-                    <form role="form" action="index.html">
+                    @if (count($errors) > 0)
+                        <!-- Form Error List -->
+                        <div class="alert alert-danger">
+                            <strong>哇哦！你的输入好像有些错误！</strong>
+
+                            <br><br>
+
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form role="form" method="post" action="{{ url('admin/login') }}">
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <!--a href="#" class="pull-right label-forgot">Forgot email?</a-->
                             <label for="inputUsernameEmail">用户名</label>
-                            <input type="text" id="inputUsernameEmail" class="form-control">
+                            <input type="text" id="inputUsernameEmail" name="name" class="form-control">
                         </div>
                         <div class="form-group">
                             <!--a href="#" class="pull-right label-forgot">Forgot password?</a-->
                             <label for="inputPassword">密码</label>
-                            <input type="password" id="inputPassword" class="form-control">
+                            <input type="password" id="inputPassword" name="password" class="form-control">
                         </div>
                         <div class="checkbox pull-left">
                             <label>
-                                <input type="checkbox">记住用户名</label>
+                                <input type="checkbox" name="remember">记住用户名</label>
                         </div>
                         <button class="btn btn btn-primary pull-right" type="submit">
                             登 录
@@ -81,11 +96,7 @@
         </div>
     </div>
 
-    <p>&nbsp;</p>
-    <div style="text-align:center;margin:0 auto;">
-        <h6 style="color:#fff;">Copyright(C)2014 fjcloudsoft.com All Rights Reserved<br />
-            ICODESS 版权所有 闽IP备07021605号</h6>
-    </div>
+
 
 </div>
 <div id="test1" class="gmap3"></div>

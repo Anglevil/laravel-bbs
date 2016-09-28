@@ -82,9 +82,6 @@
                             <a href="{{ url('/user/'.$item->member->id) }}">{{ $item->member->name }}</a>
                             <span>{{ $item->member->introduction }}</span>
                             <span class="pull-right">
-                                <a href="javascript:;" data-toggle="tooltip" title="赞">
-                                    <i class="glyphicon glyphicon-thumbs-up"></i>
-                                </a> ⋅
                                 <a href="javascript:;" data-toggle="tooltip" title="回复({{ $item->member->name }})"  onclick="comment('{{ $item->member->name }}');">
                                     <i class="glyphicon glyphicon-envelope"></i>
                                 </a>
@@ -175,17 +172,17 @@
     <script src="/js/marked.js"></script>
     <script src="/js/highlight.js"></script>
     <script>
-        //hljs.initHighlightingOnLoad();
+        hljs.initHighlightingOnLoad();
         $(document).ready(function(){
 
             marked.setOptions({
                 renderer: new marked.Renderer()
             });
-            marked.setOptions({
-                highlight: function (code) {
-                    return hljs.highlightAuto(code).value;
-                }
-            });
+//            marked.setOptions({
+//                highlight: function (code) {
+//                    return hljs.highlightAuto(code).value;
+//                }
+//            });
 
         });
 
